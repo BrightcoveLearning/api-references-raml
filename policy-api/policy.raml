@@ -7,8 +7,21 @@ baseUri: https://policy.api.brightcove.com/v1
     /{account_id}:
         urlParameters:
             account_id:
+                description: Video Cloud account id
                 type: string
-        /policy_keys
+        /policy_keys:
+            post:
+                description: Create a policy key
+                headers:
+                    Content-Type: application/json
+                    Authorization:
+            /{key_string}:
+                get:
+                    description: Get a policy key
+                urlParameters:
+                    key_string:
+                        description: the `key_string` from a policy key
+                        type: string
 mediaType:  application/json
 securitySchemes:
   oauth_2_0: !include securitySchemes/oauth_2_0.raml
