@@ -1,0 +1,18 @@
+#%RAML 1.0
+title: Policy API
+description: Reference for the Brightcove Policy API, used to create policy keys to access the Playback API. Note that policy keys are generated automatically for Brightcove Players. This API is used to generate keys to access the Playback API **outside the context of a Brightcove Player**. To test API requests, you can use our <a href=\"https://support.brightcove.com/node/17910\" target=\"_blank\">API Testing Tools</a>
+version: v1
+baseUri: https://policy.api.brightcove.com
+mediaType:  application/json
+securitySchemes:
+  oauth_2_0: !include securitySchemes/oauth_2_0.raml
+types:
+  Policy Key:  !include types/policy_keys.raml
+resourceTypes:
+  collection: !include types/collection.raml
+traits:
+securedBy: [ oauth_2_0 ]
+/search:
+  /code:
+    type: collection
+    get:
