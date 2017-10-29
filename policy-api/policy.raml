@@ -2,7 +2,8 @@
 title: Policy API
 description: Reference for the Brightcove Policy API, used to create policy keys to access the Playback API. Note that policy keys are generated automatically for Brightcove Players. This API is used to generate keys to access the Playback API __outside the context of a Brightcove Player__. To test API requests, you can use our [API Testing Tools](https://support.brightcove.com/concepts-testing-tools-brightcove-apis).
 version: v1
-baseUri: https://policy.api.brightcove.com/v1
+baseUri: https://policy.api.brightcove.com/{version}
+mediaType: application/json
 /accounts:
     /{account_id}:
         urlParameters:
