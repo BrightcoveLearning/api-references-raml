@@ -15,7 +15,24 @@ mediaType: application/json
                 description: Create a policy key
                 headers:
                     Content-Type: application/json
-                    Authorization:
+                responses:
+                    200:
+                        body:
+                            application/json
+                                example: |
+                                {
+                                    "key-string": "BCpkADawqM3Y8LpDbjIPcWKZSiCwNwbeAoZPIhFnkPq0LyyRpXfjmIYvPIr-x5G0G9MWx8INLb39GGbPgrOYQfv5yN-1xph02-AE2DAvU6sZ7KshLC5E9SqTFBPR-gDNd87Z7SLkbexUPgp78KYWjRuh2mxmV_mg3y_i5BMLQHLbvvLaRksV0j8khLx0pVgnkmsUy50cARhPM9rgC2n7pzGYGSbCBXAqDd6jssJp2f670OzSjbCMHS65yG8",
+                                    "key-data": {
+                                        "account-id": "1752604059001",
+                                        "apis": [
+                                            "search"
+                                        ],
+                                        "allowed-domains": [
+                                            "http://support.brightcove.com",
+                                            "https://solutions.brightcove.com"
+                                        ]
+                                    }
+                                }
             /{key_string}:
                 get:
                     description: Get a policy key
@@ -23,6 +40,24 @@ mediaType: application/json
                     key_string:
                         description: the `key_string` from a policy key
                         type: string
+                responses:
+                    200:
+                        body:
+                            application/json
+                                example: |
+                                {
+                                    "key-string": "BCpkADawqM3Y8LpDbjIPcWKZSiCwNwbeAoZPIhFnkPq0LyyRpXfjmIYvPIr-x5G0G9MWx8INLb39GGbPgrOYQfv5yN-1xph02-AE2DAvU6sZ7KshLC5E9SqTFBPR-gDNd87Z7SLkbexUPgp78KYWjRuh2mxmV_mg3y_i5BMLQHLbvvLaRksV0j8khLx0pVgnkmsUy50cARhPM9rgC2n7pzGYGSbCBXAqDd6jssJp2f670OzSjbCMHS65yG8",
+                                    "key-data": {
+                                        "account-id": "1752604059001",
+                                        "apis": [
+                                            "search"
+                                        ],
+                                        "allowed-domains": [
+                                            "http://support.brightcove.com",
+                                            "https://solutions.brightcove.com"
+                                        ]
+                                    }
+                                }
 securitySchemes:
   oauth_2_0: !include ../securitySchemes/oauth_2_0.raml
 types:
@@ -31,7 +66,3 @@ resourceTypes:
   collection: !include types/collection.raml
 traits:
 securedBy: [ oauth_2_0 ]
-/search:
-  /code:
-    type: collection
-    get:
