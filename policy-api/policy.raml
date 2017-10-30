@@ -18,36 +18,26 @@ types:
                 description: Create a policy key
                 body:
                     application/json:
-                        type: |
-                            {
-                            "type": "object",
-                            "$schema": "http://json-schema.org/schema",
-                            "id": "http://jsonschema.net",
-                            "required": true,
-                            "properties": {
-                                "key-data": {
-                                    "type": "object",
-                                    "required": true,
-                                    "properties": {
-                                        "account-id": {
-                                            "type": "string",
-                                            "required": true,
-                                            "description": "Video Cloud account id"
-                                            },
-                                            "apis": {
-                                                "type": "array",
-                                                "required": false,
-                                                "description": "Array of APIs that are permitted for this key (currently 'search' is the only one available - this must be included to to use the search funtionality for the Playback API)"
-                                                },
-                                                "allowed-domains": {
-                                                    "type": "array",
-                                                    "required": false,
-                                                    "description": "For domain restriction, the domains this key will work on"
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
+                        type: object
+                        example:
+                            key-data:
+                                account_id: 1752604059001
+                                apis: ['search']
+                                allowed-domains: ['support.brightcove.com', 'solutions.brightcove.com']
+                            properties:
+                                key-data:
+                                    type: object
+                                    required: true
+                                    properties:
+                                        account_id:
+                                        apis:
+                                            type: string[],
+                                            required: false
+                                            description: Array of APIs that are permitted for this key (currently 'search' is the only one available - this must be included to to use the search funtionality for the Playback API)
+                                        allowed-domains:
+                                            type: string[],
+                                            required: false
+                                            description: For domain restriction, the domains this key will work on
                 responses:
                     200:
                         body:
