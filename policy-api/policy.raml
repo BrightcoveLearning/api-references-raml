@@ -13,10 +13,8 @@ mediaType: application/json
         /policy_keys:
             post:
                 description: Create a policy key
-                headers:
-                    Content-Type: application/json
                 body:
-                    application/json
+                    application/json:
                         type: |
                             {
                             "type": "object",
