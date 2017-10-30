@@ -4,6 +4,13 @@ description: Reference for the Brightcove Policy API, used to create policy keys
 version: v1
 baseUri: https://policy.api.brightcove.com/{version}
 mediaType: application/json
+types:
+    account_id:
+        type: string
+        description: Video Cloud account id
+    key_string:
+        type: string
+        description: The key string associated with a policy key
 /accounts:
     /{account_id}:
         /policy_keys:
